@@ -1,9 +1,8 @@
 package com.example;
 
 import one.microstream.cluster.nodelibrary.common.ClusterStorageManager;
-import one.microstream.cluster.nodelibrary.common.ClusterStorageManagerProvider;
 
-public class DB implements ClusterStorageManagerProvider
+public class DB
 {
 	private static final DB INSTANCE = new DB();
 	
@@ -15,7 +14,7 @@ public class DB implements ClusterStorageManagerProvider
 	private final DataRoot root;
 	private final ClusterStorageManager storage = new ClusterStorageManager(new DataRoot());
 
-	private DB()
+	public DB()
 	{
 		this.root = (DataRoot)this.storage.getRoot();
 	}
@@ -28,11 +27,5 @@ public class DB implements ClusterStorageManagerProvider
 	public DataRoot root()
 	{
 		return this.root;
-	}
-	
-	@Override
-	public ClusterStorageManager provideClusterStorageManager()
-	{
-		return this.storage();
 	}
 }
