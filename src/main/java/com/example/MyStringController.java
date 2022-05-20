@@ -9,10 +9,9 @@ import io.micronaut.http.annotation.Delete;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.QueryValue;
-import one.microstream.cluster.nodelibrary.micronaut.StorageClusterController;
 
-@Controller("/")
-public class MyStringController extends StorageClusterController
+@Controller("/mystrings")
+public class MyStringController
 {
 	private final MyStringDAO myStringDAO = new MyStringDAO();
 
