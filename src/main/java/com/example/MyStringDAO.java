@@ -9,8 +9,9 @@ public class MyStringDAO
 	{
 		synchronized (DB.get())
 		{
-			DB.get().root().myStrings.add(myString);
-			DB.get().storage().store(myString);
+			final List<String> myStrings = DB.get().root().myStrings;
+			myStrings.add(myString);
+			DB.get().storage().store(myStrings);
 		}
 	}
 
@@ -28,9 +29,9 @@ public class MyStringDAO
 	{
 		synchronized (DB.get())
 		{
-			final DataRoot root = DB.get().root();
-			root.myStrings.remove(myString);
-			DB.get().storage().store(root);
+			final List<String> myStrings = DB.get().root().myStrings;
+			myStrings.remove(myString);
+			DB.get().storage().store(myStrings);
 		}
 	}
 }
