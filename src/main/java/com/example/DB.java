@@ -1,6 +1,7 @@
 package com.example;
 
 import one.microstream.cluster.nodelibrary.common.ClusterStorageManager;
+import one.microstream.reference.Lazy;
 
 public class DB
 {
@@ -11,21 +12,21 @@ public class DB
 		return INSTANCE;
 	}
 	
-	private final DataRoot root;
-	private final ClusterStorageManager storage = new ClusterStorageManager(new DataRoot());
+	private final Lazy<DataRoot> root;
+	private final ClusterStorageManager<DataRoot> storage = new ClusterStorageManager<>(new DataRoot());
 
 	public DB()
 	{
-		this.root = (DataRoot)this.storage.getRoot();
+		this.root = this.storage.getRoot();
 	}
 	
-	public ClusterStorageManager storage()
+	public ClusterStorageManager<DataRoot> storage()
 	{
 		return this.storage;
 	}
 
 	public DataRoot root()
 	{
-		return this.root;
+		return this.root.get();
 	}
 }
