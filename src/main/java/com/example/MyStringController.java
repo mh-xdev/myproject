@@ -19,7 +19,7 @@ public class MyStringController
 	@Get
 	public List<String> getAllMyString()
 	{
-		return this.myStringDAO.getMyStrings().stream().map(s -> s + " NEW STRING!!!").collect(Collectors.toList());
+		return this.myStringDAO.getMyStrings().stream().map(s -> s + " old string???").collect(Collectors.toList());
 	}
 
 	@Get("/{myString}")

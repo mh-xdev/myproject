@@ -5,5 +5,5 @@ import java.util.List;
 
 public class DataRoot
 {
-	public final List<String> myNewStrings = new ArrayList<>();
+	public final List<String> thatIsCorrectSir = new ArrayList<>();
 }
