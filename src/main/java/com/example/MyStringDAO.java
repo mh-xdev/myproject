@@ -9,7 +9,7 @@ public class MyStringDAO
 	{
 		synchronized (DB.get())
 		{
-			final List<String> myStrings = DB.get().root().myStrings;
+			final List<String> myStrings = DB.get().root().myNewStrings;
 			myStrings.add(myString);
 			DB.get().storage().store(myStrings);
 		}
@@ -17,7 +17,7 @@ public class MyStringDAO
 
 	public List<String> getMyStrings()
 	{
-		return new ArrayList<>(DB.get().root().myStrings);
+		return new ArrayList<>(DB.get().root().myNewStrings);
 	}
 
 	public String getMyString(final String myString)
@@ -29,7 +29,7 @@ public class MyStringDAO
 	{
 		synchronized (DB.get())
 		{
-			final List<String> myStrings = DB.get().root().myStrings;
+			final List<String> myStrings = DB.get().root().myNewStrings;
 			myStrings.remove(myString);
 			DB.get().storage().store(myStrings);
 		}
