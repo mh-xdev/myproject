@@ -8,7 +8,7 @@ import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Delete;
 import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.Post;
+import io.micronaut.http.annotation.Put;
 import io.micronaut.http.annotation.QueryValue;
 
 @Controller("/mystrings")
@@ -28,7 +28,7 @@ public class MyStringController
 		return this.myStringDAO.getMyString(myString);
 	}
 
-	@Post(consumes = MediaType.TEXT_PLAIN)
+	@Put(consumes = MediaType.TEXT_PLAIN)
 	public void postMyString(@Body final String myString)
 	{
 		this.myStringDAO.addMyString(myString);
