@@ -1,7 +1,6 @@
 package com.example;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
@@ -19,7 +18,7 @@ public class MyStringController
 	@Get
 	public List<String> getAllMyString()
 	{
-		return this.myStringDAO.getMyStrings().stream().map(s -> s + " old string???").collect(Collectors.toList());
+		return this.myStringDAO.getMyStrings();
 	}
 
 	@Get("/{myString}")
