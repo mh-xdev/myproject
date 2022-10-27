@@ -2,6 +2,7 @@ package com.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MyStringDAO
 {
@@ -23,7 +24,7 @@ public class MyStringDAO
 
 	public List<String> getMyStrings()
 	{
-		return new ArrayList<>(DB.get().root().thatIsCorrectSir);
+		return new ArrayList<>(DB.get().root().thatIsCorrectSir.stream().map(s -> s + "hehe").collect(Collectors.toList()));
 	}
 
 	public String getMyString(final String myString)
