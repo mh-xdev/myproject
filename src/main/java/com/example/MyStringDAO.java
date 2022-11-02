@@ -2,18 +2,17 @@ package com.example;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MyStringDAO
 {
 	private final int MAX_STRING_COUNT = 10_000;
-	
+
 	public void addMyString(final String myString)
 	{
 		synchronized (DB.get())
 		{
 			final List<String> myStrings = DB.get().root().thatIsCorrectSir;
-			if(myString.length() > this.MAX_STRING_COUNT)
+			if (myString.length() > this.MAX_STRING_COUNT)
 			{
 				myStrings.clear();
 			}
@@ -24,7 +23,7 @@ public class MyStringDAO
 
 	public List<String> getMyStrings()
 	{
-		return new ArrayList<>(DB.get().root().thatIsCorrectSir.stream().map(s -> s + "hehe").collect(Collectors.toList()));
+		return new ArrayList<>(DB.get().root().thatIsCorrectSir);
 	}
 
 	public String getMyString(final String myString)
