@@ -12,10 +12,10 @@ public class MyStringDAO
 		synchronized (DB.get())
 		{
 			final List<String> myStrings = DB.get().root().thatIsCorrectSir;
-			if (myString.length() > this.MAX_STRING_COUNT)
-			{
-				myStrings.clear();
-			}
+//			if (myString.length() > this.MAX_STRING_COUNT)
+//			{
+//				myStrings.clear();
+//			}
 			myStrings.add(myString);
 			DB.get().storage().store(myStrings);
 		}
