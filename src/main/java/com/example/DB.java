@@ -1,6 +1,6 @@
 package com.example;
 
-import one.microstream.cluster.nodelibrary.common.ClusterStorageManager;
+import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
 import one.microstream.reference.Lazy;
 
 public class DB

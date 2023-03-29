@@ -1,7 +1,7 @@
 package com.example;
 
-import one.microstream.cluster.nodelibrary.common.ClusterStorageManager;
-import one.microstream.cluster.nodelibrary.common.spi.ClusterStorageManagerProvider;
+import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
+import one.microstream.enterprise.cluster.nodelibrary.common.spi.ClusterStorageManagerProvider;
 
 public class MyClusterStorageManagerProvider implements ClusterStorageManagerProvider
 {
