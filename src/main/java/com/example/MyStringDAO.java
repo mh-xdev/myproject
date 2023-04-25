@@ -5,6 +5,7 @@ import java.util.List;
 
 public class MyStringDAO
 {
+	@SuppressWarnings("unused")
 	private final int MAX_STRING_COUNT = 10_000;
 
 	public void addMyString(final String myString)
