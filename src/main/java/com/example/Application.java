@@ -7,6 +7,6 @@ public class Application {
 
     public static void main(final String[] args) {
         final var ctx = Micronaut.run(Application.class, args);
-        new StorageClusterController().load(ctx);
+        ctx.inject(new StorageClusterController());
     }
 }
