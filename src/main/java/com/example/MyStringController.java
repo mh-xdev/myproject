@@ -15,7 +15,7 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Put;
 import io.micronaut.http.annotation.QueryValue;
 
-@Controller("/")
+@Controller("/mystrings")
 public class MyStringController
 {
 	private final MyStringDAO myStringDAO = new MyStringDAO();
