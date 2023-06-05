@@ -1,12 +1,7 @@
 package com.example;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import org.apache.kafka.common.Uuid;
-
-import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
@@ -27,28 +22,9 @@ public class MyStringController
 	}
 
 	@Get("/{myString}")
-	public HttpResponse<String> getMyString(@QueryValue final String myString)
+	public String getMyString(@QueryValue final String myString)
 	{
-		// Simulate some calculations and stuff for benchmarking
-		final long start = System.currentTimeMillis();
-		final var x = this.myStringDAO.getMyStrings().stream().flatMap(s ->
-		{
-			final var ls = new ArrayList<>();
-			ls.add(s);
-			return ls.stream();
-		}).map(e ->
-		{
-			System.out.println(
-				"This is a heavy oneliner that will degrade performance massively!!!! Look at how many letters!" + Uuid
-					.randomUuid()
-					.toString()
-			);
-			return e;
-		}).collect(Collectors.toList());
-		final var res = HttpResponse.ok(this.myStringDAO.getMyString(myString))
-			.header("Chunkyness", Integer.toString(x.size()));
-		System.err.println("Took: " + (System.currentTimeMillis() - start) + "ms");
-		return res;
+		return this.myStringDAO.getMyString(myString);
 	}
 
 	@Put(consumes = MediaType.TEXT_PLAIN)
