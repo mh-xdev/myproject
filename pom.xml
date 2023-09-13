@@ -34,6 +34,18 @@
 			<url>https://repo.microstream.one/repository/ms-ee/</url>
 		</repository>
 	</repositories>
+	
+	<dependencyManagement>
+    <dependencies>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-bom</artifactId>
+      <version>2.19.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+    </dependencies>
+  </dependencyManagement>
 
 	<dependencies>
 		<dependency>
@@ -86,11 +98,6 @@
 			<artifactId>jakarta.annotation-api</artifactId>
 			<scope>compile</scope>
 		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>one.microstream</groupId>
@@ -104,13 +111,20 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-slf4j2-impl</artifactId>
-		</dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <scope>runtime</scope>
+    </dependency>
 	</dependencies>
 
 	<build>
